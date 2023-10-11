@@ -28,31 +28,36 @@ def game():
     global choice_message
     choice_message = f"{name}, a {description} from {country} \n"
 
-  choice_1 = choices()
+  choices()
 
   def compare():
     global points
+    global followers_global
+    global choice_global
+    global choice_message
     print(art.logo)
     print(f"You have {points} points")
     print("Let's play higher or lower!")
     print("Who has more followers? \n")
-
-    nonlocal choice_1
-    choice_1 = choice_1
-    print(choice_message)
+    choice_1 = choice_global
+    choice_message_1 = choice_message
+    print(choice_message_1)
     followers_1 = followers_global
     
     print(art.vs)
     
     choice_2 = choices()
-    print(choice_message)
+    choice_message_2 = choice_message
+    print(choice_message_2)
     followers_2 = followers_global
 
     answer = input("A or B? \n")
     
     if answer.lower() == "a":
       if followers_1 > followers_2:
-        choice_1 = choice_global
+        choice_global = choice_1
+        choice_message = choice_message_1
+        followers_global = followers_1
         points += 1
         cls()
         compare()
@@ -62,11 +67,14 @@ def game():
         print(f"You scored {points} points!")
         replay = input("Play again? y/n \n")
         if replay.lower() == "y":
+          points = 0
           game()
     
     if answer.lower() == "b":
       if followers_1 < followers_2:
-        choice_1 = choice_global
+        choice_global = choice_2
+        choice_message = choice_message_2
+        followers_global = followers_2
         points += 1
         print(f"You have {points} points")
         cls()
@@ -77,6 +85,7 @@ def game():
         print(f"You scored {points} points!")
         replay = input("Play again? y/n \n")
         if replay.lower() == "y":
+          points = 0
           game()
 
 
