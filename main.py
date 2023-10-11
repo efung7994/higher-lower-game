@@ -11,6 +11,9 @@ choice_message = ''
 def cls():
     os.system('cls' if os.name=='nt' else 'clear')
 
+print(game_data.data_clone)
+print(game_data.data)
+
 
 def game():
   cls()
@@ -47,6 +50,16 @@ def game():
     
     print(art.vs)
     
+    if len(game_data.data) == 0:
+      cls()
+      print("YOU WIN!")
+      print(f"You scored {points} points!")
+      replay = input("Play again? y/n \n")
+      if replay.lower() == "y":
+        points = 0
+        game_data.data.extend(game_data.data_clone)
+        game()
+    
     choice_2 = choices()
     choice_message_2 = choice_message
     print(choice_message_2)
@@ -69,6 +82,7 @@ def game():
         print(f"You scored {points} points!")
         replay = input("Play again? y/n \n")
         if replay.lower() == "y":
+          game_data.data.extend(game_data.data_clone)
           points = 0
           game()
     
@@ -87,9 +101,9 @@ def game():
         print(f"You scored {points} points!")
         replay = input("Play again? y/n \n")
         if replay.lower() == "y":
+          game_data.data.extend(game_data.data_clone)
           points = 0
           game()
-
 
   compare()
 
