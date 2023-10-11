@@ -11,7 +11,6 @@ def game():
     choice = random.choice(game_data.data)
     global choice_global
     choice_global = choice
-    print(choice_global)
     game_data.data.remove(choice)
     name = choice["name"]
     description = choice["description"]
@@ -29,6 +28,7 @@ def game():
     choice_1 = choices()
     followers_1 = followers_global
     print(followers_global)
+    print(choice_global)
     
 
     print(art.vs)
@@ -36,17 +36,20 @@ def game():
     choice_2 = choices()
     followers_2 = followers_global
     print(followers_global)
+    print(choice_global)
 
     answer = input("A or B? \n")
     
-    if answer.lower() == "a":
+    if answer.lower() == "a" or "b":
       if followers_1 > followers_2:
         choice_1 = choice_global
+        print(choice_global)
+        print(choice_1)
         choice_2 = choices()
         compare()
       else:
         print("Wrong")
 
-    compare()
+  compare()
 
 game()
