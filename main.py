@@ -43,6 +43,7 @@ def game():
     choice_message_1 = choice_message
     print(choice_message_1)
     followers_1 = followers_global
+    print(followers_1)
     
     print(art.vs)
     
@@ -50,6 +51,7 @@ def game():
     choice_message_2 = choice_message
     print(choice_message_2)
     followers_2 = followers_global
+    print(followers_2)
 
     answer = input("A or B? \n")
     
