@@ -304,4 +304,3 @@ data = [
 
 data_clone = []
 data_clone.extend(data)
-print(data_clone)
