@@ -7,12 +7,10 @@ followers_global = 0
 choice_global = None
 points = 0
 choice_message = ''
+data_clone = []
 
 def cls():
     os.system('cls' if os.name=='nt' else 'clear')
-
-print(game_data.data_clone)
-print(game_data.data)
 
 
 def game():
@@ -21,6 +19,7 @@ def game():
     choice = random.choice(game_data.data)
     global choice_global
     choice_global = choice
+    data_clone.append(choice)
     game_data.data.remove(choice)
     name = choice["name"]
     description = choice["description"]
@@ -38,6 +37,7 @@ def game():
     global followers_global
     global choice_global
     global choice_message
+    global data_clone
     print(art.logo)
     print(f"You have {points} points")
     print("Let's play higher or lower!")
@@ -56,7 +56,8 @@ def game():
       replay = input("Play again? y/n \n")
       if replay.lower() == "y":
         points = 0
-        game_data.data.extend(game_data.data_clone)
+        game_data.data.extend(data_clone)
+        data_clone = []
         game()
     
     choice_2 = choices()
@@ -80,8 +81,9 @@ def game():
         print(f"You scored {points} points!")
         replay = input("Play again? y/n \n")
         if replay.lower() == "y":
-          game_data.data.extend(game_data.data_clone)
           points = 0
+          game_data.data.extend(data_clone)
+          data_clone = []
           game()
     
     if answer.lower() == "b":
@@ -99,7 +101,8 @@ def game():
         print(f"You scored {points} points!")
         replay = input("Play again? y/n \n")
         if replay.lower() == "y":
-          game_data.data.extend(game_data.data_clone)
+          game_data.data.extend(data_clone)
+          data_clone = []
           points = 0
           game()
 

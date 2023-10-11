@@ -300,7 +300,3 @@ data = [
         'country': 'United States'
     }
 ]
-
-
-data_clone = []
-data_clone.extend(data)
