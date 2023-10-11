@@ -20,12 +20,15 @@ def game():
     followers_global = followers
     print(f"{name}, a {description} from {country}")
 
+  choice_1 = choices()
+
   def compare():
     print(art.logo)
     print("Let's play higher or lower!")
     print("Who has more followers?")
 
-    choice_1 = choices()
+    nonlocal choice_1
+    choice_1 = choice_1
     followers_1 = followers_global
     print(followers_global)
     print(choice_global)
@@ -45,7 +48,6 @@ def game():
         choice_1 = choice_global
         print(choice_global)
         print(choice_1)
-        choice_2 = choices()
         compare()
       else:
         print("Wrong")
